@@ -7,48 +7,37 @@
 
 #include "software_timer.h"
 
-int timer1_counter = 0 ;
-int timer1_flag = 0 ;
-int timer2_counter = 0 ;
-int timer2_flag = 0 ;
-int timer0_counter = 0 ;
-int timer0_flag = 0 ;
-int TIMER_CYCLE = 10;
 
-void setTimer1(int duration){
-	timer1_counter = duration/TIMER_CYCLE;
-	timer1_flag = 0 ;
+int timer_counter[NUM_OF_TIMERS] = {0};
+int timer_flag[NUM_OF_TIMERS] = {0};
+
+
+void setTimer(int index, int duration) {
+	if (index >= 0 && index < NUM_OF_TIMERS) {
+		timer_counter[index] = duration / TIMER_CYCLE;
+		timer_flag[index] = 0;
+	}
 }
 
 
-void setTimer2(int duration){
-	timer2_counter = duration/TIMER_CYCLE;
-	timer2_flag = 0 ;
+int isTimerFlagSet(int index) {
+	if (index >= 0 && index < NUM_OF_TIMERS) {
+		if (timer_flag[index] == 1) {
+			timer_flag[index] = 0;
+			return 1;
+		}
+	}
+	return 0;
 }
 
-void setTimer0(int duration){
-	timer0_counter = duration/TIMER_CYCLE;
-	timer0_flag = 0 ;
-}
+
 void timerRun() {
-    if (timer1_counter > 0) {
-        timer1_counter--;
-        if (timer1_counter <= 0) {
-            timer1_flag = 1;
-        }
-    }
-
-    if (timer2_counter > 0) {
-        timer2_counter--;
-        if (timer2_counter <= 0) {
-            timer2_flag = 1;
-        }
-    }
-
-    if (timer0_counter > 0) {
-        timer0_counter--;
-        if (timer0_counter <= 0) {
-            timer0_flag = 1;
-        }
-    }
+	for (int i = 0; i < NUM_OF_TIMERS; i++) {
+		if (timer_counter[i] > 0) {
+			timer_counter[i]--;
+			if (timer_counter[i] <= 0) {
+				timer_flag[i] = 1;
+			}
+		}
+	}
 }

@@ -8,13 +8,17 @@
 #ifndef INC_SOFTWARE_TIMER_H_
 #define INC_SOFTWARE_TIMER_H_
 
-extern int timer1_flag;
-extern int timer2_flag;
-extern int timer0_flag;
+#include "main.h"
 
-void setTimer1(int duration);
-void setTimer2(int duration);
-void setTimer0(int duration);
+#define NUM_OF_TIMERS 3
+#define TIMER_CYCLE 10
+
+extern int timer_counter[NUM_OF_TIMERS];
+extern int timer_flag[NUM_OF_TIMERS];
+
+
+void setTimer(int index, int duration);
+int isTimerFlagSet(int index);
 void timerRun();
 
 
