@@ -1,4 +1,4 @@
 ../Core/Src/button.c:27:5:isButtonPressed	2
 ../Core/Src/button.c:35:5:isButtonLongPressed	2
-../Core/Src/button.c:43:6:subKeyProcess	8
-../Core/Src/button.c:63:6:getKeyInput	11
+../Core/Src/button.c:43:6:subKeyProcess	9
+../Core/Src/button.c:65:6:getKeyInput	11

@@ -45,6 +45,8 @@ void subKeyProcess(int buttonIndex) {
 		case MODE_BUTTON:
 			if(isButtonPressed(MODE_BUTTON) == 1)
 			HAL_GPIO_TogglePin(GREEN_13_GPIO_Port, GREEN_13_Pin);
+			if(isButtonLongPressed(MODE_BUTTON) == 1)
+			HAL_GPIO_TogglePin(GREEN_13_GPIO_Port, GREEN_13_Pin);
 
 			break;
 		case MODIFY_BUTTON:

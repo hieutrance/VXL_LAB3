@@ -103,7 +103,7 @@ int main(void)
   HAL_GPIO_WritePin(GREEN_13_GPIO_Port , GREEN_13_Pin , SET);
   while (1)
   {
-	  subKeyProcess(MODIFY_BUTTON);
+	  subKeyProcess(MODE_BUTTON);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
