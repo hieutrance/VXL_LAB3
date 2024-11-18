@@ -40,27 +40,27 @@ int isButtonLongPressed(int num){
 	return 0;
 }
 
-void subKeyProcess(int buttonIndex) {
-	switch (buttonIndex) {
-		case MODE_BUTTON:
-			if(isButtonPressed(MODE_BUTTON) == 1)
-			HAL_GPIO_TogglePin(GREEN_13_GPIO_Port, GREEN_13_Pin);
-			if(isButtonLongPressed(MODE_BUTTON) == 1)
-			HAL_GPIO_TogglePin(GREEN_13_GPIO_Port, GREEN_13_Pin);
-
-			break;
-		case MODIFY_BUTTON:
-			if(isButtonPressed(MODIFY_BUTTON) == 1)
-			HAL_GPIO_TogglePin(YELLOW_13_GPIO_Port, YELLOW_13_Pin);
-			break;
-		case SET_BUTTON:
-			if(isButtonPressed(SET_BUTTON) == 1)
-			HAL_GPIO_TogglePin(RED_13_GPIO_Port, RED_13_Pin);
-			break;
-		default:
-			break;
-	}
-}
+//void subKeyProcess(int buttonIndex) {
+//	switch (buttonIndex) {
+//		case MODE_BUTTON:
+//			if(isButtonPressed(MODE_BUTTON) == 1)
+//			HAL_GPIO_TogglePin(GREEN_13_GPIO_Port, GREEN_13_Pin);
+//			if(isButtonLongPressed(MODE_BUTTON) == 1)
+//			HAL_GPIO_TogglePin(GREEN_13_GPIO_Port, GREEN_13_Pin);
+//
+//			break;
+//		case MODIFY_BUTTON:
+//			if(isButtonPressed(MODIFY_BUTTON) == 1)
+//			HAL_GPIO_TogglePin(YELLOW_13_GPIO_Port, YELLOW_13_Pin);
+//			break;
+//		case SET_BUTTON:
+//			if(isButtonPressed(SET_BUTTON) == 1)
+//			HAL_GPIO_TogglePin(RED_13_GPIO_Port, RED_13_Pin);
+//			break;
+//		default:
+//			break;
+//	}
+//}
 
 void getKeyInput() {
 	for (int i = 0; i < NUM_OF_BUTTONS; i++) {

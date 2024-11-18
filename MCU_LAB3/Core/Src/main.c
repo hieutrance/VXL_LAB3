@@ -58,6 +58,18 @@ static void MX_TIM2_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void turnoff_red(){
+	HAL_GPIO_WritePin(RED_13_GPIO_Port , RED_13_Pin , GPIO_PIN_SET);
+	HAL_GPIO_WritePin(RED_24_GPIO_Port , RED_24_Pin , GPIO_PIN_SET);
+}
+void turnoff_yellow(){
+	HAL_GPIO_WritePin(YELLOW_13_GPIO_Port , YELLOW_13_Pin , GPIO_PIN_SET);
+	HAL_GPIO_WritePin(YELLOW_24_GPIO_Port , YELLOW_24_Pin , GPIO_PIN_SET);
+}
+void turnoff_green(){
+	HAL_GPIO_WritePin(GREEN_13_GPIO_Port , GREEN_13_Pin , GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GREEN_24_GPIO_Port , GREEN_24_Pin , GPIO_PIN_SET);
+}
 
 /* USER CODE END 0 */
 
@@ -108,6 +120,7 @@ int main(void)
   while (1)
   {
 	 fsm_automatic();
+	 fsm_manual();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
