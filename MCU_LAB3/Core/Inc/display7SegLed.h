@@ -9,6 +9,10 @@
 #define INC_DISPLAY7SEGLED_H_
 
 #include "main.h"
+#include "global.h"
 
+void display7SegLed(int num);
+void updateBuffer();
+void update7SegLed(int num);
 
 #endif /* INC_DISPLAY7SEGLED_H_ */

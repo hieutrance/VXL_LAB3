@@ -7,10 +7,10 @@
 
 #include "global.h"
 
-int timeRed = 5000;
-int timeGreen = 3000;
-int timeYellow = 2000;
+int timeRed = 5; // unit is second
+int timeGreen = 3;
+int timeYellow = 2;
 
 int status;
-int value13;
-int value24;
+int time13;
+int time24;

@@ -22,8 +22,8 @@
 #define MODIFY_YELLOW	12
 #define MODIFY_GREEN	13
 extern int status;
-extern int value13;
-extern int value24;
+extern int time13;
+extern int time24;
 extern int timeRed;
 extern int timeGreen;
 extern int timeYellow;

@@ -98,6 +98,10 @@ void Error_Handler(void);
 #define en3_Pin GPIO_PIN_9
 #define en3_GPIO_Port GPIOB
 
+void turnoff_red();
+void turnoff_yellow();
+void turnoff_green();
+
 /* USER CODE BEGIN Private defines */
 
 

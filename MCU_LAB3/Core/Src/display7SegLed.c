@@ -7,7 +7,7 @@
 
 #include "display7SegLed.h"
 
-int led_buffer[4];
+int led_buffer[4] = {0};
 
 void display7SegLed(int num){
 	switch(num){
@@ -107,10 +107,10 @@ void display7SegLed(int num){
 }
 
 void updateBuffer(){
-	led_buffer[0] = value13/10000;
-	led_buffer[1] = value13/1000;
-	led_buffer[2] = value24/10000;
-	led_buffer[3] = value24/1000;
+	led_buffer[0] = time13/10000;
+	led_buffer[1] = time13/1000;
+	led_buffer[2] = time24/10000;
+	led_buffer[3] = time24/1000;
 }
 
 void update7SegLed(int num){
@@ -148,3 +148,20 @@ void update7SegLed(int num){
 	}
 }
 
+void process7SegLed(status){
+	switch(status){
+	case RED13_GREEN24:
+		time13--;
+		time24--;
+		updateBuffer();
+		break;
+	case RED13_YELLOW24:
+		break;
+	case GREEN13_RED24:
+		break;
+	case YELLOW13_RED24:
+		break;
+	default:
+		break;
+	}
+}
