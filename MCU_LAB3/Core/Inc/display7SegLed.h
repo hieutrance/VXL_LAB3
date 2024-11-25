@@ -11,6 +11,7 @@
 #include "main.h"
 #include "global.h"
 
+
 void display7SegLed(int num);
 void updateBuffer();
 void update7SegLed(int num);

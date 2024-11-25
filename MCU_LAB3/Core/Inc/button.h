@@ -21,5 +21,7 @@
 
 
 void getKeyInput();
+int isButtonPressed(int num);
+int isButtonLongPressed(int num);
 
 #endif /* INC_BUTTON_H_ */

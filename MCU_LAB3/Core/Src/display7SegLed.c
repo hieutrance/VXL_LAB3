@@ -106,56 +106,55 @@ void display7SegLed(int num){
 	}
 }
 
-void updateBuffer(){
-	led_buffer[0] = time13/10000;
-	led_buffer[1] = time13/1000;
-	led_buffer[2] = time24/10000;
-	led_buffer[3] = time24/1000;
+void updateBufer(){
+	led_buffer[0] = time13 / 10;
+	led_buffer[1] = time13 % 10;
+	led_buffer[2] = time24 / 10;
+	led_buffer[3] = time24 % 10;
 }
 
-void update7SegLed(int num){
-	switch(num){
-	case 1:
-		HAL_GPIO_WritePin(en1_GPIO_Port , en1_Pin , RESET);
-		HAL_GPIO_WritePin(en2_GPIO_Port , en2_Pin , SET);
-		HAL_GPIO_WritePin(en3_GPIO_Port , en3_Pin , SET);
-		HAL_GPIO_WritePin(en4_GPIO_Port , en4_Pin , SET);
-		display7SegLed(led_buffer[0]);
-		break;
-	case 2:
-		HAL_GPIO_WritePin(en1_GPIO_Port , en1_Pin , SET);
-		HAL_GPIO_WritePin(en2_GPIO_Port , en2_Pin , RESET);
-		HAL_GPIO_WritePin(en3_GPIO_Port , en3_Pin , SET);
-		HAL_GPIO_WritePin(en4_GPIO_Port , en4_Pin , SET);
-		display7SegLed(led_buffer[1]);
-		break;
-	case 3:
-		HAL_GPIO_WritePin(en1_GPIO_Port , en1_Pin , SET);
-		HAL_GPIO_WritePin(en2_GPIO_Port , en2_Pin , SET);
-		HAL_GPIO_WritePin(en3_GPIO_Port , en3_Pin , RESET);
-		HAL_GPIO_WritePin(en4_GPIO_Port , en4_Pin , SET);
-		display7SegLed(led_buffer[2]);
-		break;
-	case 4:
-		HAL_GPIO_WritePin(en1_GPIO_Port , en1_Pin , SET);
-		HAL_GPIO_WritePin(en2_GPIO_Port , en2_Pin , SET);
-		HAL_GPIO_WritePin(en3_GPIO_Port , en3_Pin , SET);
-		HAL_GPIO_WritePin(en4_GPIO_Port , en4_Pin , RESET);
-		display7SegLed(led_buffer[3]);
-		break;
-	default:
-		break;
-	}
-}
+void update7SegLed(int index){
+    HAL_GPIO_WritePin(en1_GPIO_Port, en1_Pin, SET);
+    HAL_GPIO_WritePin(en2_GPIO_Port, en2_Pin, SET);
+    HAL_GPIO_WritePin(en3_GPIO_Port, en3_Pin, SET);
+    HAL_GPIO_WritePin(en4_GPIO_Port, en4_Pin, SET);
 
-void process7SegLed(status){
+    switch(index){
+    case 0:
+    	HAL_GPIO_WritePin(en1_GPIO_Port , en1_Pin , RESET);
+    	display7SegLed(led_buffer[0]);
+    	break;
+    case 1:
+    	HAL_GPIO_WritePin(en2_GPIO_Port , en2_Pin , RESET);
+    	display7SegLed(led_buffer[1]);
+    	break;
+    case 2:
+    	HAL_GPIO_WritePin(en3_GPIO_Port , en3_Pin , RESET);
+    	display7SegLed(led_buffer[2]);
+    	break;
+    case 3:
+    	HAL_GPIO_WritePin(en4_GPIO_Port , en4_Pin , RESET);
+    	display7SegLed(led_buffer[3]);
+    	break;
+    default:
+    	break;
+    }
+    index++;
+    if(index >=4){
+    	index = 0;
+    }
+}
+/*
+void updateTimeForState(status){
 	switch(status){
 	case RED13_GREEN24:
-		time13--;
-		time24--;
-		updateBuffer();
+		time13 = timeRed;
+		time24 = timeGreen;
 		break;
 	case RED13_YELLOW24:
+		if(time13 >= 0){
+			time13remain = time13;
+		}
 		break;
 	case GREEN13_RED24:
 		break;
@@ -163,5 +162,8 @@ void process7SegLed(status){
 		break;
 	default:
 		break;
-	}
 }
+*/
+
+
+

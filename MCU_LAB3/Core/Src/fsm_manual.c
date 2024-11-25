@@ -21,6 +21,7 @@ void fsm_manual(){
 			setTimer(1 , 500);
 		}
 		break;
+
 	case MODIFY_YELLOW:
 		if(isTimerFlagSet(1)==1){
 			HAL_GPIO_TogglePin(YELLOW_13_GPIO_Port , YELLOW_13_Pin);

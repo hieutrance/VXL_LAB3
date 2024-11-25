@@ -40,58 +40,71 @@ int isButtonLongPressed(int num){
 	return 0;
 }
 
-//void subKeyProcess(int buttonIndex) {
-//	switch (buttonIndex) {
-//		case MODE_BUTTON:
-//			if(isButtonPressed(MODE_BUTTON) == 1)
-//			HAL_GPIO_TogglePin(GREEN_13_GPIO_Port, GREEN_13_Pin);
-//			if(isButtonLongPressed(MODE_BUTTON) == 1)
-//			HAL_GPIO_TogglePin(GREEN_13_GPIO_Port, GREEN_13_Pin);
+void getKeyInput() {
+    for (int i = 0; i < NUM_OF_BUTTONS; i++) {
+        KeyReg0[i] = KeyReg1[i];
+        KeyReg1[i] = KeyReg2[i];
+
+        if (i == MODE_BUTTON) {
+            KeyReg2[i] = HAL_GPIO_ReadPin(MODE_BUTTON_GPIO_Port, MODE_BUTTON_Pin);
+        } else if (i == MODIFY_BUTTON) {
+            KeyReg2[i] = HAL_GPIO_ReadPin(MODIFY_BUTTON_GPIO_Port, MODIFY_BUTTON_Pin);
+        } else if (i == SET_BUTTON) {
+            KeyReg2[i] = HAL_GPIO_ReadPin(SET_BUTTON_GPIO_Port, SET_BUTTON_Pin);
+        }
+
+        if ((KeyReg0[i] == KeyReg1[i]) && (KeyReg1[i] == KeyReg2[i])) {
+            if (KeyReg2[i] == PRESSED_STATE) {
+                if (KeyReg3[i] != PRESSED_STATE) { // Phát hiện nhấn ngắn
+                    Pressed_flag[i] = 1;
+                    KeyReg3[i] = PRESSED_STATE;
+                    TimerForKeyPress[i] = 200;
+                } else { // Xử lý nhấn giữ
+                    TimerForKeyPress[i]--;
+                    if (TimerForKeyPress[i] == 0) {
+                        LongPressed_flag[i] = 1;
+                        TimerForKeyPress[i] = 200;
+                    }
+                }
+            } else { // Nút không được nhấn
+                KeyReg3[i] = NORMAL_STATE;
+                TimerForKeyPress[i] = 200; // Reset bộ đếm
+            }
+        }
+    }
+}
+
+
+//void getKeyInput() {
+//	for (int i = 0; i < NUM_OF_BUTTONS; i++) {
 //
-//			break;
-//		case MODIFY_BUTTON:
-//			if(isButtonPressed(MODIFY_BUTTON) == 1)
-//			HAL_GPIO_TogglePin(YELLOW_13_GPIO_Port, YELLOW_13_Pin);
-//			break;
-//		case SET_BUTTON:
-//			if(isButtonPressed(SET_BUTTON) == 1)
-//			HAL_GPIO_TogglePin(RED_13_GPIO_Port, RED_13_Pin);
-//			break;
-//		default:
-//			break;
+//		KeyReg0[i] = KeyReg1[i];
+//		KeyReg1[i] = KeyReg2[i];
+//
+//		if (i == MODE_BUTTON) {
+//			KeyReg2[i] = HAL_GPIO_ReadPin(MODE_BUTTON_GPIO_Port, MODE_BUTTON_Pin);
+//		} else if (i == MODIFY_BUTTON) {
+//			KeyReg2[i] = HAL_GPIO_ReadPin(MODIFY_BUTTON_GPIO_Port, MODIFY_BUTTON_Pin);
+//		} else if (i == SET_BUTTON) {
+//			KeyReg2[i] = HAL_GPIO_ReadPin(SET_BUTTON_GPIO_Port, SET_BUTTON_Pin);
+//		}
+//
+//		if ((KeyReg0[i] == KeyReg1[i]) && (KeyReg1[i] == KeyReg2[i])) {
+//			if (KeyReg3[i] != KeyReg2[i]) {
+//				KeyReg3[i] = KeyReg2[i];
+//				if (KeyReg2[i] == PRESSED_STATE){
+//					Pressed_flag[i] = 1; /////
+//					TimerForKeyPress[i] = 200;
+//				}
+//			} else if (KeyReg2[i] == PRESSED_STATE){
+//				TimerForKeyPress[i]--;
+//				if (TimerForKeyPress[i] == 0) {
+//					LongPressed_flag[i] = 1;
+//					TimerForKeyPress[i] = 200; // Reset lại bộ đếm để xử lý nhấn giữ
+//				}
+//			}
+//		}
 //	}
 //}
-
-void getKeyInput() {
-	for (int i = 0; i < NUM_OF_BUTTONS; i++) {
-
-		KeyReg0[i] = KeyReg1[i];
-		KeyReg1[i] = KeyReg2[i];
-
-		if (i == MODE_BUTTON) {
-			KeyReg2[i] = HAL_GPIO_ReadPin(MODE_BUTTON_GPIO_Port, MODE_BUTTON_Pin);
-		} else if (i == MODIFY_BUTTON) {
-			KeyReg2[i] = HAL_GPIO_ReadPin(MODIFY_BUTTON_GPIO_Port, MODIFY_BUTTON_Pin);
-		} else if (i == SET_BUTTON) {
-			KeyReg2[i] = HAL_GPIO_ReadPin(SET_BUTTON_GPIO_Port, SET_BUTTON_Pin);
-		}
-
-		if ((KeyReg0[i] == KeyReg1[i]) && (KeyReg1[i] == KeyReg2[i])) {
-			if (KeyReg3[i] != KeyReg2[i]) {
-				KeyReg3[i] = KeyReg2[i];
-				if (KeyReg2[i] == PRESSED_STATE){
-					Pressed_flag[i] = 1; /////
-					TimerForKeyPress[i] = 200;
-				}
-			} else if (KeyReg2[i] == PRESSED_STATE){
-				TimerForKeyPress[i]--;
-				if (TimerForKeyPress[i] == 0) {
-					LongPressed_flag[i] = 1;
-					TimerForKeyPress[i] = 200; // Reset lại bộ đếm để xử lý nhấn giữ
-				}
-			}
-		}
-	}
-}
 
 

@@ -7,17 +7,11 @@
 
 #include "fsm_automatic.h"
 
-int index = 1;
-int index13 = 0;
-int index24 = 0;
+
 void fsm_automatic(){
 	switch(status){
 	case INIT:
 		status = RED13_GREEN24;
-
-		time13 = timeRed;
-		time24 = timeGreen;
-		updateBuffer();
 
 		setTimer(1 , 3000);
 		setTimer(2 , 250);
@@ -37,17 +31,6 @@ void fsm_automatic(){
 			setTimer(1 , 2000);
 		}
 
-		if(isTimerFlagSet(2) == 1){
-			setTimer(2 , 250);
-			update7SegLed(index);
-			index++;
-			if(index >= 5){
-				index = 1;
-				time13--;
-				time24--;
-				updateBuffer();
-			}
-		}
 		if(isButtonPressed(MODE_BUTTON)==1){
 			status = MODIFY_RED;
 			setTimer(1 , 500);
@@ -71,14 +54,6 @@ void fsm_automatic(){
 			setTimer(1 , 3000);
 		}
 
-		if(isTimerFlagSet(2) == 1){
-			setTimer(2 , 250);
-			update7SegLed(index);
-			index++;
-			if(index >= 5){
-				index = 1;
-			}
-		}
 		if(isButtonPressed(MODE_BUTTON)==1){
 			status = MODIFY_RED;
 			setTimer(1 , 500);
@@ -104,15 +79,6 @@ void fsm_automatic(){
 			setTimer(1 , 2000);
 		}
 
-		if(isTimerFlagSet(2) == 1){
-			setTimer(2 , 250);
-			update7SegLed(index);
-			index++;
-			if(index >= 5){
-				index = 1;
-			}
-		}
-
 		if(isButtonPressed(MODE_BUTTON)==1){
 			status = MODIFY_RED;
 			setTimer(1 , 500);
@@ -136,14 +102,6 @@ void fsm_automatic(){
 			setTimer(1 , 3000);
 		}
 
-		if(isTimerFlagSet(2) == 1){
-			setTimer(2 , 250);
-			update7SegLed(index);
-			index++;
-			if(index >= 5){
-				index = 1;
-			}
-		}
 		if(isButtonPressed(MODE_BUTTON)==1){
 			status = MODIFY_RED;
 			setTimer(1 , 500);
