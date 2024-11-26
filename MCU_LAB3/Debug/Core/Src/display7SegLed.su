@@ -2,3 +2,4 @@
 ../Core/Src/display7SegLed.c:109:6:updateBufer	4	static
 ../Core/Src/display7SegLed.c:117:6:update7SegLed	16	static
 ../Core/Src/display7SegLed.c:145:6:updateTimeForState	16	static
+../Core/Src/display7SegLed.c:168:6:turnOffAll7Seg	8	static

@@ -165,6 +165,13 @@ void updateTimeForState(int status){
 	}
 }
 
+void turnOffAll7Seg(){
+    HAL_GPIO_WritePin(en1_GPIO_Port, en1_Pin, SET);
+    HAL_GPIO_WritePin(en2_GPIO_Port, en2_Pin, SET);
+    HAL_GPIO_WritePin(en3_GPIO_Port, en3_Pin, SET);
+    HAL_GPIO_WritePin(en4_GPIO_Port, en4_Pin, SET);
+}
+
 
 
 

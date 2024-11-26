@@ -16,5 +16,6 @@ void display7SegLed(int num);
 void updateBuffer();
 void update7SegLed(int num);
 void updateTimeForState(int status);
+void turnOffAll7Seg();
 
 #endif /* INC_DISPLAY7SEGLED_H_ */
