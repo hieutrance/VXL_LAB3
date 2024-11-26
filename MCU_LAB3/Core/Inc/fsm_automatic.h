@@ -11,4 +11,6 @@
 #include "global.h"
 
 void fsm_automatic();
+
+extern int led_index;
 #endif /* INC_FSM_AUTOMATIC_H_ */
