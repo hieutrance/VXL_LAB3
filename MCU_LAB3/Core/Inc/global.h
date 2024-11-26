@@ -24,6 +24,8 @@
 extern int status;
 extern int time13;
 extern int time24;
+extern int time13remain;
+extern int time24remain;
 extern int timeRed;
 extern int timeGreen;
 extern int timeYellow;

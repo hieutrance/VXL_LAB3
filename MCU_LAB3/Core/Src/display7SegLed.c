@@ -107,10 +107,11 @@ void display7SegLed(int num){
 }
 
 void updateBufer(){
-	led_buffer[0] = time13 / 10;
-	led_buffer[1] = time13 % 10;
-	led_buffer[2] = time24 / 10;
-	led_buffer[3] = time24 % 10;
+    led_buffer[0] = (time13 > 99) ? 9 : (time13 / 10);
+    led_buffer[1] = (time13 > 99) ? 9 : (time13 % 10);
+
+    led_buffer[2] = (time24 > 99) ? 9 : (time24 / 10);
+    led_buffer[3] = (time24 > 99) ? 9 : (time24 % 10);
 }
 
 void update7SegLed(int index){
@@ -139,31 +140,31 @@ void update7SegLed(int index){
     default:
     	break;
     }
-    index++;
-    if(index >=4){
-    	index = 0;
-    }
 }
-/*
-void updateTimeForState(status){
+
+void updateTimeForState(int status){
 	switch(status){
 	case RED13_GREEN24:
 		time13 = timeRed;
 		time24 = timeGreen;
 		break;
 	case RED13_YELLOW24:
-		if(time13 >= 0){
-			time13remain = time13;
-		}
+		time13 = time13remain;
+		time24 = timeYellow;
 		break;
 	case GREEN13_RED24:
+		time13 = timeGreen;
+		time24 = timeRed;
 		break;
 	case YELLOW13_RED24:
+		time13 = timeYellow;
+		time24 = time24remain;
 		break;
 	default:
 		break;
+	}
 }
-*/
+
 
 
 
