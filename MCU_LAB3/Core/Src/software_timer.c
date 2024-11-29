@@ -20,7 +20,7 @@ void setTimer(int index, int duration) {
 }
 
 
-int isTimerFlagSet(int index) {
+int isTimerFlagSet(int index){
 	if (index >= 0 && index < NUM_OF_TIMERS) {
 		if (timer_flag[index] == 1) {
 			timer_flag[index] = 0;

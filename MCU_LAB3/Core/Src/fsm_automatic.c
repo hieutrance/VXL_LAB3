@@ -6,18 +6,18 @@
  */
 
 #include "fsm_automatic.h"
-#include "software_timer.h"
+
 int led_index;
 
 void fsm_automatic(){
 	switch(status){
 	case INIT:
 		turnOffAll7Seg();
-		status = RED13_GREEN24;
+//		status = RED13_GREEN24;
 		led_index = 0;
 		setTimer(1 , timeGreen*1000);
-		setTimer(2 , 0);
-		setTimer(0 , 1000);
+		setTimer(2 , 250);
+		setTimer(3 , 1000);
 
 		updateTimeForState(status);
 		updateBufer();
@@ -38,11 +38,12 @@ void fsm_automatic(){
 			setTimer(1 , timeYellow*1000);
 			updateTimeForState(status);
 		}
-		if(isTimerFlagSet(0)){
+		if(isTimerFlagSet(3)){
+			//HAL_GPIO_WritePin(YELLOW_13_GPIO_Port , YELLOW_13_Pin , GPIO_PIN_RESET);
 			time13--;
 			time24--;
 			updateBufer();
-			setTimer(0 , 1000);
+			setTimer(3 , 1000);
 		}
 		if(isTimerFlagSet(2)){
 			setTimer(2 , 250);

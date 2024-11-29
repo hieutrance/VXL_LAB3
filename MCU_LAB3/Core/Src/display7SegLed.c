@@ -8,6 +8,7 @@
 #include "display7SegLed.h"
 
 int led_buffer[4] = {0};
+int led_extra_buffer[4]={0};
 
 void display7SegLed(int num){
 	switch(num){
@@ -106,6 +107,22 @@ void display7SegLed(int num){
 	}
 }
 
+//void updateExtraBufer(){
+//    led_extra_buffer[0] = (time13 > 99) ? 9 : (time13 / 10);
+//    led_extra_buffer[1] = (time13 > 99) ? 9 : (time13 % 10);
+//
+//    led_extra_buffer[2] = (time24 > 99) ? 9 : (time24 / 10);
+//    led_extra_buffer[3] = (time24 > 99) ? 9 : (time24 % 10);
+//}
+
+//void updateBufer(){
+//    led_buffer[0] = led_extra_buffer[0];
+//    led_buffer[1] = led_extra_buffer[1];
+//
+//    led_buffer[2] = led_extra_buffer[3];
+//    led_buffer[3] = led_extra_buffer[4];
+//}
+
 void updateBufer(){
     led_buffer[0] = (time13 > 99) ? 9 : (time13 / 10);
     led_buffer[1] = (time13 > 99) ? 9 : (time13 % 10);
@@ -113,6 +130,9 @@ void updateBufer(){
     led_buffer[2] = (time24 > 99) ? 9 : (time24 / 10);
     led_buffer[3] = (time24 > 99) ? 9 : (time24 % 10);
 }
+
+
+
 
 void update7SegLed(int index){
     HAL_GPIO_WritePin(en1_GPIO_Port, en1_Pin, SET);
@@ -123,7 +143,7 @@ void update7SegLed(int index){
     switch(index){
     case 0:
     	HAL_GPIO_WritePin(en1_GPIO_Port , en1_Pin , RESET);
-
+    	display7SegLed(led_buffer[0]);
     	break;
     case 1:
     	HAL_GPIO_WritePin(en2_GPIO_Port , en2_Pin , RESET);
