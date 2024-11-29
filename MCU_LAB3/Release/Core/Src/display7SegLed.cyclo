@@ -1,0 +1,5 @@
+../Core/Src/display7SegLed.c:12:6:display7SegLed	11
+../Core/Src/display7SegLed.c:109:6:updateBufer	5
+../Core/Src/display7SegLed.c:117:6:update7SegLed	5
+../Core/Src/display7SegLed.c:145:6:updateTimeForState	5
+../Core/Src/display7SegLed.c:166:6:turnOffAll7Seg	1

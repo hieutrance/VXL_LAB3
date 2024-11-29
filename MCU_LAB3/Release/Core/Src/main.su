@@ -1,0 +1,7 @@
+../Core/Src/main.c:61:6:turnoff_red	8	static
+../Core/Src/main.c:65:6:turnoff_yellow	8	static
+../Core/Src/main.c:69:6:turnoff_green	8	static
+../Core/Src/main.c:135:6:SystemClock_Config	72	static,ignoring_inline_asm
+../Core/Src/main.c:80:5:main	40	static,ignoring_inline_asm
+../Core/Src/main.c:267:6:HAL_TIM_PeriodElapsedCallback	8	static
+../Core/Src/main.c:277:6:Error_Handler	0	static,ignoring_inline_asm

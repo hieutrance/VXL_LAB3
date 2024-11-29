@@ -13,7 +13,7 @@
 
 
 void display7SegLed(int num);
-void updateBuffer();
+void updateBufer();
 void update7SegLed(int num);
 void updateTimeForState(int status);
 void turnOffAll7Seg();

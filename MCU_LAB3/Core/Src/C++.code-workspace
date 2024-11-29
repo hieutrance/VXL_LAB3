@@ -1,0 +1,79 @@
+{
+	"folders": [
+		{
+			"name": "C++",
+			"path": "../../../../../VS code/C++"
+		},
+		{
+			"name": "css",
+			"path": "../../../../../VS code/css"
+		},
+		{
+			"name": "ossim_source_code",
+			"path": "../../../../../os_src/ossim_source_code"
+		},
+		{
+			"path": "../../../../LAB3/Core/Src"
+		},
+		{
+			"path": "../../../../LAB3/Core/Inc"
+		},
+		{
+			"path": "../../../../../../../Downloads/LAB2/Process"
+		},
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "ReactJS",
+		"files.associations": {
+			"ostream": "cpp",
+			"functional": "cpp",
+			"limits": "cpp",
+			"array": "cpp",
+			"atomic": "cpp",
+			"*.tcc": "cpp",
+			"cctype": "cpp",
+			"chrono": "cpp",
+			"clocale": "cpp",
+			"cmath": "cpp",
+			"cstdarg": "cpp",
+			"cstddef": "cpp",
+			"cstdint": "cpp",
+			"cstdio": "cpp",
+			"cstdlib": "cpp",
+			"ctime": "cpp",
+			"cwchar": "cpp",
+			"cwctype": "cpp",
+			"deque": "cpp",
+			"unordered_map": "cpp",
+			"vector": "cpp",
+			"exception": "cpp",
+			"algorithm": "cpp",
+			"iterator": "cpp",
+			"memory": "cpp",
+			"memory_resource": "cpp",
+			"numeric": "cpp",
+			"random": "cpp",
+			"ratio": "cpp",
+			"string": "cpp",
+			"system_error": "cpp",
+			"tuple": "cpp",
+			"type_traits": "cpp",
+			"utility": "cpp",
+			"fstream": "cpp",
+			"initializer_list": "cpp",
+			"iomanip": "cpp",
+			"iosfwd": "cpp",
+			"iostream": "cpp",
+			"istream": "cpp",
+			"new": "cpp",
+			"sstream": "cpp",
+			"stdexcept": "cpp",
+			"streambuf": "cpp",
+			"thread": "cpp",
+			"typeinfo": "cpp"
+		}
+	}
+}

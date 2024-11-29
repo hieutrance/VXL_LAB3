@@ -123,7 +123,7 @@ void update7SegLed(int index){
     switch(index){
     case 0:
     	HAL_GPIO_WritePin(en1_GPIO_Port , en1_Pin , RESET);
-    	display7SegLed(led_buffer[0]);
+
     	break;
     case 1:
     	HAL_GPIO_WritePin(en2_GPIO_Port , en2_Pin , RESET);
@@ -149,7 +149,6 @@ void updateTimeForState(int status){
 		time24 = timeGreen;
 		break;
 	case RED13_YELLOW24:
-		time13 = time13remain;
 		time24 = timeYellow;
 		break;
 	case GREEN13_RED24:
@@ -158,7 +157,6 @@ void updateTimeForState(int status){
 		break;
 	case YELLOW13_RED24:
 		time13 = timeYellow;
-		time24 = time24remain;
 		break;
 	default:
 		break;

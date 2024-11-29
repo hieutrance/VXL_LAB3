@@ -11,7 +11,6 @@
 #include "software_timer.h"
 #include "button.h"
 #include "main.h"
-#include "display7SegLed.h"
 
 #define INIT 			1
 #define RED13_GREEN24 	2

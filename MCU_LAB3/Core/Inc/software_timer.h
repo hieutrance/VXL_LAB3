@@ -10,7 +10,7 @@
 
 #include "main.h"
 
-#define NUM_OF_TIMERS 3
+#define NUM_OF_TIMERS 5
 #define TIMER_CYCLE 10
 
 extern int timer_counter[NUM_OF_TIMERS];
